@@ -1,0 +1,32 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #efe8e8;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: rgb(167, 199, 190);
+  color: #000;
+}
+
+tr:nth-child(odd) {
+  background-color: #454746;
+  color: #fff;
+}
+
+#total_price {
+  display: inline-block;
+  text-align: right;
+  padding: 0.2em;
+  margin: 0.2em;
+  border-top: 1px solid black;
+  border-bottom-style: double;
+  width: 3em;
+}
