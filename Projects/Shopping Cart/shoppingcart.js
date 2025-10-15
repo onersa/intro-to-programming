@@ -4,6 +4,10 @@ var prices = [7.5, 9.5, 8.5, 7.5];
 var quantities = [0, 0, 0, 0];
 var totals = [0.0, 0.0, 0.0, 0.0];
 var totalOrderAmt = 0;
+document.getElementById("checkout").addEventListener("click", checkOut);
+
+//hide the receipt if there is a change in the table
+document.getElementById("receipt").style.display = "none";
 
 function add_selection(x) {
   console.log(x);
@@ -11,6 +15,8 @@ function add_selection(x) {
   totals[x] = prices[x] * quantities[x];
   totalOrderAmt += prices[x];
 
+  //hide the receipt if there is a change in the table
+  document.getElementById("receipt").style.display = "none";
   display_all();
 }
 
@@ -20,11 +26,32 @@ function remove_selection(x) {
     quantities[x]--;
     totals[x] = prices[x] * quantities[x];
     totalOrderAmt -= prices[x];
+
+    //hide the receipt if there is a change in the table
+    document.getElementById("receipt").style.display = "none";
   } else {
     alert(`You currently do not have ${items[x]} items in your cart.`);
   }
 
   display_all();
+}
+
+function checkOut() {
+  var totalItems = 0;
+  for (let i = 0; i < quantities.length; i++) {
+    totalItems += quantities[i];
+  }
+
+  if (totalItems === 0) return;
+
+  document.getElementById("receipt").style.display = "grid";
+
+  document.getElementById("num_of_items").innerHTML = totalItems;
+  document.getElementById("subtotal").innerHTML = totalOrderAmt.toFixed(2);
+  document.getElementById("tax").innerHTML = (totalOrderAmt * 0.15).toFixed(2);
+  document.getElementById("total").innerHTML = (totalOrderAmt * 1.15).toFixed(
+    2
+  );
 }
 
 function display_all() {
@@ -58,10 +85,7 @@ function display_all() {
   }
 
   myTable += "</table>";
-  myTable +=
-    "<br/><br/><p>Total: <span id='total_price'>" +
-    totalOrderAmt.toFixed(2) +
-    "</span></p>";
+
   document.getElementById("demo").innerHTML = myTable;
 }
 
