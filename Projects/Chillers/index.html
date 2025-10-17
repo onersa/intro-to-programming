@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chillers</title>
+    <link rel="stylesheet" href="./chapter19.css" />
+  </head>
+
+  <body>
+    <h1>Chillers Lemonade Stand</h1>
+    <hr />
+
+    <h2 id="sunny">Sunny day = Lemonade day ! ! {^_^}</h2>
+    <br /><br />
+
+    <div id="5DayWeather" class="weather-container"></div>
+    <!-- 
+  The clear="all" attribute on a <br> tag is used to clear floated 
+  elements and force content to move below them instead of wrapping 
+  around.
+ -->
+    <br clear="all" />
+    <div class="order-container">
+      <div id="orderForm">
+        <div id="glasses">
+          <label
+            >a) How many glasses of lemonade do you want to make this week?
+            <br />
+            <input
+              type="number"
+              id="numGlasses"
+              placeholder="hint: think big!"
+            />
+          </label>
+        </div>
+        <br />
+        <div id="price">
+          <label>
+            b) How much will you charge for a glass of lemonade this week?
+            <br />
+            <input type="number" id="glassPrice" placeholder="more than 0.5" />
+          </label>
+        </div>
+        <br /><br />
+        <button type="button" id="OpenTheStand">Open The Stand!</button>
+      </div>
+      <div id="result" class="hide"></div>
+    </div>
+    <script src="./chapter19.js"></script>
+  </body>
+</html>
